@@ -31,6 +31,8 @@ window.addEventListener('DOMContentLoaded', () => {
         [2, 4, 6]
     ];
 
+   
+
     function handleResultValidation() {
         let roundWon = false;
         for (let i = 0; i <= 7; i++) {
@@ -60,13 +62,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const announce = (type) => {
         switch(type){
             case PLAYERO_WON:
-                announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+                announcer.innerHTML = '<span class="playerO">Player O Won</span>';
                 break;
             case PLAYERX_WON:
-                announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+                announcer.innerHTML = '<span class="playerX">Player X Won</span>';
                 break;
             case TIE:
-                announcer.innerText = 'Tie';
+                announcer.innerText = 'Tile';
         }
         announcer.classList.remove('hide');
     };
@@ -90,9 +92,10 @@ window.addEventListener('DOMContentLoaded', () => {
         playerDisplay.classList.add(`player${currentPlayer}`);
     }
 
+    // turn
     const userAction = (tile, index) => {
         if(isValidAction(tile) && isGameActive) {
-            tile.innerText = currentPlayer;
+            tile.innerText =currentPlayer;
             tile.classList.add(`player${currentPlayer}`);
             updateBoard(index);
             handleResultValidation();
